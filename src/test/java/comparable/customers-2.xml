@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<customers>
+    <customer lastName="Evans" firstName="James" streetAddress="123 Main St." zipCode="13126">
+        <account accountNumber="123-45-678"/>
+    </customer>
+    <customer firstName="Stephen" lastName="Evans"  streetAddress="234 Elm St." zipCode="13126">
+        <account accountNumber="234-56-789"/>
+    </customer>
+    <customer firstName="Stephen" lastName="Evans"  zipCode="19144" streetAddress="345 Pine St.">
+        <account accountNumber="234-56-788"/>
+    </customer>
+    <customer firstName="Larry" lastName="Edwards"  zipCode="21212" streetAddress="456 Maple St.">
+        <account accountNumber="345-67-890"/>
+    </customer>
+</customers>
