@@ -50,8 +50,8 @@ class Tests {
         assertTrue(customers[2].compareTo(customers[1]) < 0, "C2->C1: COMPARETO should be negative");
     }
 
-    @Test void testCustomer21(){
-        // Test the example XML file
+        @Test void testCustomer21(){
+            // Test the example XML file
         XmlReader xr = null;
         try {
             xr = new XmlReader("./src/test/java/comparable/customers-2.xml");

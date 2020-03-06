@@ -7,18 +7,24 @@ public class Main {
 
     public static void main(String[] args) {
 
-        XmlReader myXmlReader = new XmlReader("customers.xml");
+        XmlReader myXmlReader = new XmlReader("./src/test/java/comparable/customers-1.xml");
 
         Customer[] myCustomers = myXmlReader.getCustomers();
 
-        // Uncomment when you are ready to test your program
+        //Uncomment when you are ready to test your program
 
-        // System.out.println(myCustomers.length);
+        System.out.println(myCustomers.length);
 
-        // Compare the first and second customers
-        // System.out.println("C0 COMPARETO C1:" +  myCustomers[0].compareTo(myCustomers[1]));
-
-        // Compare the second and third customers
-        // System.out.println("C1 COMPARETO C2:" +  myCustomers[1].compareTo(myCustomers[2]));
+//         //Compare the first and second customers
+        System.out.println("C0 COMPARETO C1:" + myCustomers[0].compareTo(myCustomers[1]));
+//
+////         //Compare the second and third customers
+      // System.out.println("C1 COMPARETO C0:" +  myCustomers[1].compareTo(myCustomers[0]));
+////
+////       //Compare the third and fourth customers
+        System.out.println("C1 compared C2: " + myCustomers[1].compareTo(myCustomers[2]));
+//
+      // System.out.println("C2 compared C1: " + myCustomers[2].compareTo(myCustomers[1]));
+////   }
     }
 }

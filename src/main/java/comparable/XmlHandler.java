@@ -4,6 +4,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+
 import java.util.ArrayList;
 
 public class XmlHandler extends DefaultHandler {
@@ -16,31 +17,54 @@ public class XmlHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName,
                              Attributes attributes) throws SAXException {
         System.out.println("Start element:" + qName);
-
-            // Handle the customer element
+        // Handle the customer element
+        if (qName.equals("customer")) {
             // Get attribute values
+            String lastName = attributes.getValue("lastName");
+            String firstName = attributes.getValue("firstName");
+            String streetAddress = attributes.getValue("streetAddress");
+            String zipCode = attributes.getValue("zipCode");
+
             // Instantiate the currentCustomer
-
+            currentCustomer = new Customer(lastName, firstName, streetAddress, zipCode);
+        }
             // Handle account element
+        if  (qName.equals("account")) {
             // Get attribute values
-            // Determine account type and instantiate currentAccount
-    }
+            String type = attributes.getValue("commercial");
+            String taxId = attributes.getValue("taxId");
+            String accountNumber = attributes.getValue("accountNumber");
 
+            // Determine account type and instantiate currentAccount
+            if (attributes.getValue("commercial") !=null && type.contentEquals("true")) {
+                currentAccount = new CommercialAccount(accountNumber, currentCustomer, taxId);
+            } else {
+                currentAccount = new NonCommercialAccount(accountNumber, currentCustomer);
+            }
+        }
+    }
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         System.out.println("End element:" + qName);
 
-            // Handle customer element
-            // Add currentCustomer to list of custoemers
+        // Handle customer element
+        if (qName.equals("customer")) {
+            // Add currentCustomer to list of customers
+            customers.add(currentCustomer);
+        }
+        // Handle account element
+        if (qName.equals("account")) {
 
-            // Handle account element
             // Associate currentAccount with currentCustomer
+            currentCustomer.setAccount(currentAccount);
+        }
+    }
+        // Return a reference to array list
+        public ArrayList<Customer> getCustomers(){
+            return customers;
+        }
+
     }
 
-    // Return a reference to array list
-    public ArrayList<Customer> getCustomers() {
-        return customers;
-    }
-}
 
 

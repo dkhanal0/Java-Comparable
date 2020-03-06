@@ -12,7 +12,8 @@ public class CommercialAccount extends Account {
     this.taxId = taxId;
   }
 
-  public String getTaxId(){
-    return this.taxId;
+  public String getTaxId() {
+    return (this.taxId);
   }
 }
+
